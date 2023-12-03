@@ -100,7 +100,7 @@ const FormPage = () => {
             </Form>
           ) : (
             <button
-              style={{ width: "250px", marginLeft: "353px", marginTop: "50px" }}
+              style={{ width: "250px", marginLeft: "353px", marginTop: "300px", margin: "auto"}}
               className="glow-on-hover"
               onClick={() => handleAdd(0)}
             >

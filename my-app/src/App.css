@@ -98,3 +98,8 @@ footer .inner{
 .footer:hover .inner {
   border-radius: 0%
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
