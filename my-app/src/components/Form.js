@@ -30,14 +30,14 @@ const FormPage = () => {
     return(
         <div>
             <Container>
-                <Row>
+                <Row style={{fontWeight: "bold", margin: "100px"}}>
+                    Task List
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
                             <Row className="mt-5">
                                 <Col md>
-                                    <Form.Label>First Task</Form.Label>
                                     <Form.Control 
                                         type="text" 
                                         placeholder="Enter an errand ..." 
@@ -65,13 +65,6 @@ const FormPage = () => {
                         </Button>
                         </div>
                     </Form>
-                    {fields.map(field => 
-                        <>
-                            <div className="m-5">
-                                <div>{field.id}</div>
-                                <div>{field.task}</div>
-                            </div>
-                        </>)}
                 </Row>
             </Container>
         </div>

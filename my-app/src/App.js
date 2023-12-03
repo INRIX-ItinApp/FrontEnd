@@ -1,11 +1,12 @@
-import { Routes, Route, Link } from "react-router-dom"; 
-import { useState, useEffect, useCallback } from 'react';
+import { Routes, Route } from "react-router-dom"; 
+import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"; 
 import SavedTasks from './components/SavedTasks';
 import './App.css';
 import About from "./components/About";
 import AppNavbar from "./components/Navbar";
 import Home from "./components/Home"
+
  
 
 function App() {
