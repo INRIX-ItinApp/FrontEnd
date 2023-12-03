@@ -1,10 +1,14 @@
 const Footer = () => {
   return (
     <div className="footer">
-      INRIX Hack 2023
-      <a href="https://github.com/orgs/INRIX-ItinApp/repositories">
+      <footer>
+        <div class="inner">
+          INRIX Hack 2023 | &nbsp;
+        <a href="https://github.com/orgs/INRIX-ItinApp/repositories">
         Github Repository
-      </a>
+        </a>
+      </div>
+      </footer>
     </div>
   );
 };
