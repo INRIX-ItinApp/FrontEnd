@@ -32,8 +32,8 @@ const FormPage = () => {
     return(
         <div>
             <Container>
-                <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
-                    Task List
+                <Row style={{fontWeight: "bold", paddingLeft: "100px", paddingRight: "100px"}}>
+                    {/* Task List */}
                     {fields.length ? 
                     <Form className="no-bullet">
                         <Form.Group className="mb-3" controlId="formBasicEntry">
