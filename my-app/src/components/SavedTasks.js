@@ -2,9 +2,9 @@ import React from 'react';
 
 const SavedTasks = props => {
     return (
-        <dive className="App">
+        <div className="App">
             TODO: Create Form
-        </dive>
+        </div>
     )
 }
 

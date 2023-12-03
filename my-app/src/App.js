@@ -3,14 +3,15 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useState, useEffect, useCallback } from 'react';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import FormPage from './components/Form'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from 'react-bootstrap/Container'; 
 import Nav from 'react-bootstrap/Nav'; 
 import Navbar from 'react-bootstrap/Navbar'; 
 import SavedTasks from './components/SavedTasks';
 import './App.css';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+
+import About from "./components/About";
  
 
 
@@ -49,7 +50,7 @@ function App() {
             <Nav.Link as={Link} to={"/home"}>
               HOME
             </Nav.Link>
-            <Nav.Link as={Link} to={"/saved"}>
+            <Nav.Link as={Link} to={"/about"}>
               ABOUT
             </Nav.Link>
             {
@@ -67,29 +68,17 @@ function App() {
         </Navbar.Collapse>
         </Container>
       </Navbar>
+      <div className="Intro">
+          <h1>Welcome to Ease!</h1>
+          <p>With our AI tool, save time on daily errand running and plan your day with Ease.</p>
+          <p>We take the guesswork out of your route so you can get your tasks done faster and have more time for you!</p>
+          <h2>Your Day, Your Way!</h2>
+      </div>
+      <FormPage/>
       <Routes>
-        <Route exact path={"/"} element={
-          <SavedTasks />}
-          />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
-      <Form>
-      <Form.Group className="mb-3" controlId="formBasicTask">
-        <Form.Label>Task 1</Form.Label>
-        <Form.Control 
-              type="task1" 
-              placeholder="Enter an Errand"
-              required
-              value ={ content } />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicTask2">
-        <Form.Label>Task 2</Form.Label>
-        <Form.Control type="task2" placeholder="Enter Another Errand" />
-      </Form.Group>
-      <Button variant="light" type="submit">
-        Submit
-      </Button>
-    </Form>
     </div>
     </GoogleOAuthProvider>
   );

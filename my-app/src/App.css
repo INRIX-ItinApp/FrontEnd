@@ -22,13 +22,21 @@
   color: white;
 }
 
+.App-header.h1 {
+  font-weight: 500;
+
+}
+
 .App-link {
   color: #61dafb;
 }
 
 body {
   overflow-x: hidden;
+  color: white; 
+  font-family: 'Roboto Condensed', sans-serif;
 }
+
 
 .text-to-right {
   direction: rtl;
@@ -60,3 +68,4 @@ img.itinLogo {
   height: 50px; 
   padding-right: 5px; 
 }
+
