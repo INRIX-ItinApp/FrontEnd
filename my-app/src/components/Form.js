@@ -38,7 +38,7 @@ const FormPage = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
-                            <Row className="mt-5">
+                            <Row className="align-items-center mt-5">
                                 <Col md>
                                     {/* <Form.Label>First Task</Form.Label> */}
                                     <Form.Control 
@@ -67,7 +67,7 @@ const FormPage = () => {
                             Submit
                         </Button>
                         </div>
-                    </Form> : <button onClick={() => handleAdd(0)}>
+                    </Form> : <button className='glow-on-hover' onClick={() => handleAdd(0)}>
                         Describe your day
                     </button>}
                 </Row>
