@@ -30,6 +30,7 @@ const FormPage = () => {
     setFields([...values]);
   };
 
+<<<<<<< HEAD
   let navigate = useNavigate();
   const routeChange = () => {
     let path = "/Mapbox";
@@ -109,5 +110,59 @@ const FormPage = () => {
     </div>
   );
 };
+=======
+    return(
+        <div>
+            <Container>
+                <Row style={{fontWeight: "bold", marginLeft: "150px"}}>
+
+                    {fields.length ? 
+                    <Form className="no-bullet">
+                        <Form.Group className="mb-3" controlId="formBasicEntry">
+                            {fields.map((field, i) => (
+                                <div key={field.id}>
+                            <Row className="align-items-center mt-5">
+                                <Col md>
+                                    {/* <Form.Label>First Task</Form.Label> */}
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="Enter a task ..." 
+                                        name="firstErrand"
+                                        value={field.firstErrand}
+                                        onChange={e => handleChangeInput(i, e)}
+                                        />
+
+                                </Col>
+                                <Col md>
+                                    <Button disabled={fields.length === 4} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
+                                        <i className="fas fa-plus"></i>
+                                    </Button>
+                                    <Button onClick={() => handleSubtract(i)}className="minus-button mt-4">
+                                        <i className="fas fa-minus"></i>
+                                    </Button>
+                                </Col>
+                            </Row>
+                            </div>
+                            ))}
+                        </Form.Group> 
+                        <div style={{float: "left", marginRight: "500px"}}>
+                            <Button type="submit" style={{background: "#5387B4", border: "2px solid #ffffff"}}>
+                                Save Tasks
+                            </Button>
+                        </div>
+                        <div style={{float: "right", marginRight: "247px"}}>
+                            <Button type="submit" style={{background: "#5387B4", border: "2px solid #ffffff"}}>
+                                Submit
+                            </Button>
+                        </div>
+                    </Form> : <button style={{width:"250px", marginLeft: "375px", marginTop: "50px"}}className='glow-on-hover' onClick={() => handleAdd(0)}>
+                        Let's Get Started!
+                    </button>}
+                </Row>
+            </Container>
+        </div>
+    )
+}
+>>>>>>> ca17a309e3ce4f833bf8ae0f8db06a035dfd7da6
 
 export default FormPage;
