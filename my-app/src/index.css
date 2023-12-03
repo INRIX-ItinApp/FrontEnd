@@ -40,6 +40,7 @@ form {
   align-items: center;
 }
 /* button styling */
+
 .glow-on-hover {
   width: 220px;
   height: 50px;
@@ -51,6 +52,7 @@ form {
   position: relative;
   z-index: 0;
   border-radius: 10px;
+  /* margin-top: 10em; */
 }
 
 .glow-on-hover:before {
@@ -92,6 +94,10 @@ form {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.minus-button {
+  margin-left: 0.5em;
 }
 
 @keyframes glowing {

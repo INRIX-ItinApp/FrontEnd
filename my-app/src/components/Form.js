@@ -54,7 +54,7 @@ const FormPage = () => {
                                     <Button disabled={fields.length === 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
                                         <i className="fas fa-plus"></i>
                                     </Button>
-                                    <Button onClick={() => handleSubtract(i)}className="mt-4">
+                                    <Button onClick={() => handleSubtract(i)}className="minus-button mt-4">
                                         <i className="fas fa-minus"></i>
                                     </Button>
                                 </Col>
@@ -62,10 +62,10 @@ const FormPage = () => {
                             </div>
                             ))}
                         </Form.Group> 
-                        <div style={{float: "right"}}>
-                        <Button type="submit" variant="light">
-                            Submit
-                        </Button>
+                        <div style={{float: "right", marginRight: "250px"}}>
+                            <Button type="submit" variant="light">
+                                Submit
+                            </Button>
                         </div>
                     </Form> : <button className='glow-on-hover' onClick={() => handleAdd(0)}>
                         Describe your day
