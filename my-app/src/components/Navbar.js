@@ -33,7 +33,7 @@ const AppNavbar = () => {
                 <Navbar bg="#428CB8" expand="lg" sticky="top" variant="dark">
                 <Container className="container-fluid">
                 <Navbar.Brand className="brand" href="/">
-                <img src="/images/cropped.png" alt="itin logo" className="itinLogo" />
+                    <img src="/images/cropped.png" alt="brand logo" className="brandLogo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" >
