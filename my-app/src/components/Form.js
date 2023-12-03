@@ -32,8 +32,7 @@ const FormPage = () => {
     return(
         <div>
             <Container>
-                <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
-                    Task List
+                <Row style={{fontWeight: "bold", marginLeft: "150px"}}>
                     {fields.length ? 
                     <Form className="no-bullet">
                         <Form.Group className="mb-3" controlId="formBasicEntry">
@@ -44,7 +43,7 @@ const FormPage = () => {
                                     {/* <Form.Label>First Task</Form.Label> */}
                                     <Form.Control 
                                         type="text" 
-                                        placeholder="Enter an errand ..." 
+                                        placeholder="Enter a task ..." 
                                         name="firstErrand"
                                         value={field.firstErrand}
                                         onChange={e => handleChangeInput(i, e)}
@@ -63,8 +62,13 @@ const FormPage = () => {
                             </div>
                             ))}
                         </Form.Group> 
-                        <div style={{float: "right", marginRight: "250px"}}>
-                            <Button type="submit" variant="light">
+                        <div style={{float: "left", marginRight: "500px"}}>
+                            <Button type="submit" style={{background: "#5387B4", border: "2px solid #ffffff"}}>
+                                Save Tasks
+                            </Button>
+                        </div>
+                        <div style={{float: "right", marginRight: "247px"}}>
+                            <Button type="submit" style={{background: "#5387B4", border: "2px solid #ffffff"}}>
                                 Submit
                             </Button>
                         </div>
