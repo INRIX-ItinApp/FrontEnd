@@ -33,6 +33,7 @@ const FormPage = () => {
         <div>
             <Container>
                 <Row style={{fontWeight: "bold", marginLeft: "150px"}}>
+
                     {fields.length ? 
                     <Form className="no-bullet">
                         <Form.Group className="mb-3" controlId="formBasicEntry">
@@ -51,7 +52,7 @@ const FormPage = () => {
 
                                 </Col>
                                 <Col md>
-                                    <Button disabled={fields.length === 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
+                                    <Button disabled={fields.length === 4} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
                                         <i className="fas fa-plus"></i>
                                     </Button>
                                     <Button onClick={() => handleSubtract(i)}className="minus-button mt-4">
