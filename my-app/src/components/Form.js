@@ -30,7 +30,7 @@ const FormPage = () => {
     return(
         <div>
             <Container>
-                <Row style={{fontWeight: "bold", margin: "100px"}}>
+                <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
                     Task List
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -47,8 +47,8 @@ const FormPage = () => {
                                         />
 
                                 </Col>
-                                <Col md>
-                                    <Button disabled={field.id == 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
+                                <Col>
+                                    <Button disabled={field.id == 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center", marginRight: "10px"}}>
                                         <i className="fas fa-plus"></i>
                                     </Button>
                                     <Button disabled={field.id == 1} onClick={() => handleSubtract(i)}className="mt-4">
@@ -59,10 +59,10 @@ const FormPage = () => {
                             </div>
                             ))}
                         </Form.Group> 
-                        <div style={{float: "right"}}>
-                        <Button type="submit" variant="light">
-                            Submit
-                        </Button>
+                        <div style={{float: "right", marginRight: "250px"}}>
+                            <Button type="submit" variant="light">
+                                Submit
+                            </Button>
                         </div>
                     </Form>
                 </Row>
