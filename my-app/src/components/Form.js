@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/container';
 import Button from 'react-bootstrap/button'; 
 
 const FormPage = () => {
-    const [fields, setFields] = useState([{
-        id: 1, 
-        task: ""
-    }])
+    const [fields, setFields] = useState([
+    //     {
+    //     // id: 1, 
+    //     // task: ""
+    // }
+])
 
     const handleChangeInput = (i, e) => {
         console.log(e.target.value); 
@@ -31,13 +33,14 @@ const FormPage = () => {
         <div>
             <Container>
                 <Row>
-                    <Form>
+                    {fields.length ? 
+                    <Form className="no-bullet">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
                             <Row className="mt-5">
                                 <Col md>
-                                    <Form.Label>First Task</Form.Label>
+                                    {/* <Form.Label>First Task</Form.Label> */}
                                     <Form.Control 
                                         type="text" 
                                         placeholder="Enter an errand ..." 
@@ -48,10 +51,10 @@ const FormPage = () => {
 
                                 </Col>
                                 <Col md>
-                                    <Button disabled={field.id == 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
+                                    <Button disabled={fields.length === 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
                                         <i className="fas fa-plus"></i>
                                     </Button>
-                                    <Button disabled={field.id == 1} onClick={() => handleSubtract(i)}className="mt-4">
+                                    <Button onClick={() => handleSubtract(i)}className="mt-4">
                                         <i className="fas fa-minus"></i>
                                     </Button>
                                 </Col>
@@ -64,14 +67,9 @@ const FormPage = () => {
                             Submit
                         </Button>
                         </div>
-                    </Form>
-                    {fields.map(field => 
-                        <>
-                            <div className="m-5">
-                                <div>{field.id}</div>
-                                <div>{field.task}</div>
-                            </div>
-                        </>)}
+                    </Form> : <button onClick={() => handleAdd(0)}>
+                        Describe your day
+                    </button>}
                 </Row>
             </Container>
         </div>

@@ -19,3 +19,8 @@ form {
   justify-content: space-between;
   height: 100%;
 }
+
+.no-bullet {
+  list-style-type: None;
+  /* list-style: none; */
+}
