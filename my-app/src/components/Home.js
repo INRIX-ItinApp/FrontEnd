@@ -6,6 +6,14 @@ const Home = () => {
       <h1>
         Welcome to <span className="highlight">Ease</span>!
       </h1>
+      <video
+        autoPlay
+        controls
+        loop
+        src="/images/driving.mp4"
+        type="video/mp4"
+        width={"40%"}
+      ></video>
       <p>
         With our AI tool, save time on daily errand running and plan your day
         with Ease.
