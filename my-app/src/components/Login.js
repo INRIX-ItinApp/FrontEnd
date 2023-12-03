@@ -3,7 +3,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-
+console.log('here is the client id:', clientId);
 function Login({ setUser }) {
 
   const onSuccess = (res) => {

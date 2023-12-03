@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/container';
 import Button from 'react-bootstrap/button'; 
 
 const FormPage = () => {
-    const [fields, setFields] = useState([{
-        id: 1, 
-        task: ""
-    }])
+    const [fields, setFields] = useState([
+    //     {
+    //     // id: 1, 
+    //     // task: ""
+    // }
+])
 
     const handleChangeInput = (i, e) => {
         console.log(e.target.value); 
@@ -32,12 +34,14 @@ const FormPage = () => {
             <Container>
                 <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
                     Task List
-                    <Form>
+                    {fields.length ? 
+                    <Form className="no-bullet">
                         <Form.Group className="mb-3" controlId="formBasicEntry">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
-                            <Row className="mt-5">
+                            <Row className="align-items-center mt-5">
                                 <Col md>
+                                    {/* <Form.Label>First Task</Form.Label> */}
                                     <Form.Control 
                                         type="text" 
                                         placeholder="Enter an errand ..." 
@@ -47,11 +51,11 @@ const FormPage = () => {
                                         />
 
                                 </Col>
-                                <Col>
-                                    <Button disabled={field.id == 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center", marginRight: "10px"}}>
+                                <Col md>
+                                    <Button disabled={fields.length === 5} onClick={() => handleAdd(i)} className="mt-4 mr-5" style={{float: "center"}}>
                                         <i className="fas fa-plus"></i>
                                     </Button>
-                                    <Button disabled={field.id == 1} onClick={() => handleSubtract(i)}className="mt-4">
+                                    <Button onClick={() => handleSubtract(i)}className="minus-button mt-4">
                                         <i className="fas fa-minus"></i>
                                     </Button>
                                 </Col>
@@ -64,7 +68,9 @@ const FormPage = () => {
                                 Submit
                             </Button>
                         </div>
-                    </Form>
+                    </Form> : <button className='glow-on-hover' onClick={() => handleAdd(0)}>
+                        Describe your day
+                    </button>}
                 </Row>
             </Container>
         </div>
