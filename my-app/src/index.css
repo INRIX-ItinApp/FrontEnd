@@ -27,7 +27,7 @@ form {
 
 .custom-nav {
   display: flex;
-  justify-content: space-around; /* Or use 'space-between' */
+  justify-content: left; /* Or use 'space-between' */
   width: 100%;
 }
 
@@ -42,7 +42,7 @@ form {
 /* button styling */
 
 .glow-on-hover {
-  width: 220px;
+  width: 100px;
   height: 50px;
   border: none;
   outline: none;

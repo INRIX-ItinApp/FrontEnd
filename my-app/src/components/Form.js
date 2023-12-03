@@ -68,8 +68,8 @@ const FormPage = () => {
                                 Submit
                             </Button>
                         </div>
-                    </Form> : <button className='glow-on-hover' onClick={() => handleAdd(0)}>
-                        Describe your day
+                    </Form> : <button style={{width:"250px", marginLeft: "350px", marginTop: "50px"}}className='glow-on-hover' onClick={() => handleAdd(0)}>
+                        Let's Get Started!
                     </button>}
                 </Row>
             </Container>
