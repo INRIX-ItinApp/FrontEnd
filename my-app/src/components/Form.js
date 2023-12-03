@@ -73,7 +73,7 @@ const FormPage = () => {
                                 Submit
                             </Button>
                         </div>
-                    </Form> : <button style={{width:"250px", marginLeft: "353px", marginTop: "50px"}}className='glow-on-hover' onClick={() => handleAdd(0)}>
+                    </Form> : <button style={{width:"250px", marginLeft: "375px", marginTop: "50px"}}className='glow-on-hover' onClick={() => handleAdd(0)}>
                         Let's Get Started!
                     </button>}
                 </Row>
