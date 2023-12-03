@@ -7,7 +7,7 @@ import About from "./components/About";
 import AppNavbar from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
-import Mapbox from "./components/Mapbox";
+// import Mapbox from "./components/Mapbox";
 
 function App() {
   const [content, setContent] = useState("");
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/Mapbox" element={<Mapbox />} />
+        {/* <Route path="/Mapbox" element={<Mapbox />} /> */}
       </Routes>
       <Footer />
     </div>
