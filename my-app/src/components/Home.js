@@ -8,9 +8,10 @@ const Home = () => {
       </h1>
       <video
         autoPlay
+        muted
         controls
         loop
-        src="/images/driving.mp4"
+        src="/images/cars.mp4"
         type="video/mp4"
         width={"40%"}
       ></video>
