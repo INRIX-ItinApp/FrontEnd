@@ -32,10 +32,11 @@ const FormPage = () => {
     return(
         <div>
             <Container>
-                <Row>
+                <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
+                    Task List
                     {fields.length ? 
                     <Form className="no-bullet">
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicEntry">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
                             <Row className="align-items-center mt-5">
