@@ -33,7 +33,7 @@ const FormPage = () => {
                 <Row style={{fontWeight: "bold", marginLeft: "100px"}}>
                     Task List
                     <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicEntry">
                             {fields.map((field, i) => (
                                 <div key={field.id}>
                             <Row className="mt-5">
