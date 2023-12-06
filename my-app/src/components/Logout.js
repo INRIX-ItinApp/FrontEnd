@@ -3,8 +3,6 @@ import { Button } from 'react-bootstrap';
 import { googleLogout } from '@react-oauth/google';
 
 
-const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-
 function Logout({ setUser }) {
 
   const onSuccess = () => {
