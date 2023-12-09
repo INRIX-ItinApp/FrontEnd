@@ -3,9 +3,11 @@ import { Form, Col } from "react-bootstrap";
 import Row from "react-bootstrap/row";
 import Container from "react-bootstrap/container";
 import Button from "react-bootstrap/button";
-// import { useNavigate } from "react-router-dom";
+import { useLocationContext } from "../context/positionContext"
+import { useNavigate } from "react-router-dom";
 
 const FormPage = () => {
+  const { currentLocation, setStart } = useLocationContext();
   const [fields, setFields] = useState([
     //     {
     //     // id: 1,
@@ -30,11 +32,41 @@ const FormPage = () => {
     setFields([...values]);
   };
 
-  // let navigate = useNavigate();
-  // const routeChange = () => {
-  //   let path = "/Mapbox";
-  //   navigate(path);
-  // };
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/Mapbox";
+    navigate(path);
+  };
+
+  function startingPosHandler (position) {
+    let coordinates = [];
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    coordinates.push(longitude)
+    coordinates.push(latitude)
+    setStart(coordinates)
+    console.log(coordinates)
+  }
+
+  function handleSubmit() {
+    // gets current location
+    // navigator.geolocation.getCurrentPosition(startingPosHandler);
+    // gets sanfrancisco coordinate because api limits to only sanfrancisco
+    setStart([-122.4194, 37.7749]);
+    routeChange();
+    fetch('http://127.0.0.1:5000/ask_openai', 
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        question: "Hey I'm at Stevens Court apartment in UW. I want to go to dicks burger, go grocery shopping, and go to a bar."
+      })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
 
   return (
     <div>
@@ -87,12 +119,7 @@ const FormPage = () => {
                 <Button
                   type="submit"
                   variant="light"
-                  onClick={() => {
-                    // routeChange();
-                    // fetch('http://127.0.0.1:5000/ask_openai')
-                    //   .then(JSON)
-                      
-                  }}
+                  onClick={handleSubmit}
                 >
                   Submit
                 </Button>

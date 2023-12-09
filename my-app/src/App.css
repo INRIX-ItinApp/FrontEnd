@@ -103,3 +103,29 @@ footer .inner{
   display: flex;
   justify-content: center;
 }
+
+#map { 
+  position: relative;
+  top: 0; 
+  bottom: 0; 
+  width: 100%;
+}
+
+.map-container {
+  height: calc(75vw * 3/5); /* This calculates the height as the viewport width minus 50px (adjust as needed) */
+  margin-top: 20px;
+}
+
+@media (max-width: 1280px) {
+  /* Your CSS rules here */
+  .map-container {
+    height: calc(100vw * 2/3); /* This calculates the height as the viewport width minus 50px (adjust as needed) */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Your CSS rules here */
+  .map-container {
+    height: calc(100vw * 6/4); /* This calculates the height as the viewport width minus 50px (adjust as needed) */
+  }
+}
