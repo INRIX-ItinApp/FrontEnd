@@ -54,6 +54,7 @@ const FormPage = () => {
     // gets sanfrancisco coordinate because api limits to only sanfrancisco
     setStart([-122.4194, 37.7749]);
     routeChange();
+    // get gpt to calculate permutations
     fetch('http://127.0.0.1:5000/ask_openai', 
     {
       method: 'POST',
@@ -66,6 +67,24 @@ const FormPage = () => {
     })
       .then(response => response.json())
       .then(data => console.log(data))
+
+    // get inrix api to calculate distance and travel times for each permutation
+
+    fetch('http://127.0.0.1:5000/findRoute',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          pointA: "",
+          pointB: "",
+          pointC: "",
+          pointD: "",
+          bearerToken: ""
+        })
+      }
+    )
   }
 
   return (
