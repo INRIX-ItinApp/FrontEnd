@@ -3,7 +3,7 @@ import { Form, Col } from "react-bootstrap";
 import Row from "react-bootstrap/row";
 import Container from "react-bootstrap/container";
 import Button from "react-bootstrap/button";
-import { useLocationContext } from "../context/positionContext"
+import { useLocationContext } from "../context/positionContext";
 import { useNavigate } from "react-router-dom";
 
 const FormPage = () => {
@@ -20,6 +20,7 @@ const FormPage = () => {
     const values = [...fields];
     values[i][e.target.name] = e.target.value;
     setFields(values);
+    console.log(values);
   };
 
   const handleAdd = (id) => {
@@ -38,53 +39,58 @@ const FormPage = () => {
     navigate(path);
   };
 
-  function startingPosHandler (position) {
+  function startingPosHandler(position) {
     let coordinates = [];
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    coordinates.push(longitude)
-    coordinates.push(latitude)
-    setStart(coordinates)
-    console.log(coordinates)
+    coordinates.push(longitude);
+    coordinates.push(latitude);
+    setStart(coordinates);
+    console.log(coordinates);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     // gets current location
     // navigator.geolocation.getCurrentPosition(startingPosHandler);
     // gets sanfrancisco coordinate because api limits to only sanfrancisco
     setStart([-122.4194, 37.7749]);
     routeChange();
     // get gpt to calculate permutations
-    fetch('http://127.0.0.1:5000/ask_openai', 
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        question: "Hey I'm at Stevens Court apartment in UW. I want to go to dicks burger, go grocery shopping, and go to a bar."
-      })
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
+    try {
+      const response = await fetch(
+        "http://inrix-flask-11.eba-bfncm3ew.us-east-2.elasticbeanstalk.com/ask_openai",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            question:
+              "Hey I'm at Stevens Court apartment in UW. I want to go to dicks burger, go grocery shopping, and go to a bar.",
+          }),
+        }
+      );
+      const gptdata = await response.text();
+      console.log(gptdata);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
 
     // get inrix api to calculate distance and travel times for each permutation
 
-    fetch('http://127.0.0.1:5000/findRoute',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          pointA: "",
-          pointB: "",
-          pointC: "",
-          pointD: "",
-          bearerToken: ""
-        })
-      }
-    )
+    // fetch("http://127.0.0.1:5000/findRoute", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     pointA: "",
+    //     pointB: "",
+    //     pointC: "",
+    //     pointD: "",
+    //     bearerToken: "",
+    //   }),
+    // });
   }
 
   return (
@@ -135,18 +141,19 @@ const FormPage = () => {
                 ))}
               </Form.Group>
               <div style={{ float: "right", marginRight: "250px" }}>
-                <Button
-                  type="submit"
-                  variant="light"
-                  onClick={handleSubmit}
-                >
+                <Button type="submit" variant="light" onClick={handleSubmit}>
                   Submit
                 </Button>
               </div>
             </Form>
           ) : (
             <button
-              style={{ width: "250px", marginLeft: "353px", marginTop: "300px", margin: "auto"}}
+              style={{
+                width: "250px",
+                marginLeft: "353px",
+                marginTop: "300px",
+                margin: "auto",
+              }}
               className="glow-on-hover"
               onClick={() => handleAdd(0)}
             >
