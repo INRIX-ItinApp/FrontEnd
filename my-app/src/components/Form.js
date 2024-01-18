@@ -70,8 +70,14 @@ const FormPage = () => {
           }),
         }
       );
-      const gptdata = await response.text();
+      const gptdata = await response.json();
       console.log(gptdata);
+      const permutationArray = gptdata.message;
+      permutationArray.forEach(async (coords) => {
+        const inrixResponse = await fetch(
+          "http://inrix-flask-11.eba-bfncm3ew.us-east-2.elasticbeanstalk.com/"
+        );
+      });
     } catch (error) {
       console.error("Fetch error:", error);
     }
