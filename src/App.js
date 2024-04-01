@@ -1,0 +1,26 @@
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import About from "./components/About";
+import AppNavbar from "./components/Navbar";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+
+function App() {
+  const [content, setContent] = useState("");
+
+  return (
+    <div className="App">
+      <AppNavbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
